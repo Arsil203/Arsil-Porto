@@ -12,110 +12,143 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden 
+      bg-gradient-to-br from-amber-100 via-yellow-50 to-orange-200
+      dark:from-zinc-900 dark:via-neutral-900 dark:to-stone-900"
+    >
       <ThreeScene />
-      
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+
+          {/* FOTO BESAR + FLOAT + HOVER */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="relative group"
           >
-            <motion.span 
-              className="inline-block px-4 py-2 rounded-full glass text-sm font-medium text-primary mb-6"
+            {/* Floating Image */}
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4
+              border-amber-400 shadow-[0_0_40px_rgba(251,191,36,0.3)]
+              dark:border-orange-400 dark:shadow-[0_0_40px_rgba(251,146,60,0.3)]"
+            >
+              <img
+                src="/profile.jpg"
+                alt="profile"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </motion.div>
+
+            {/* POP UP */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs
+            bg-amber-300 text-amber-900 opacity-0 group-hover:opacity-100 transition
+            dark:bg-zinc-800 dark:text-orange-300">
+              👀 This is me
+            </div>
+          </motion.div>
+
+          {/* TEXT (LEBIH KECIL + KE KANAN) */}
+          <div className="flex-1 text-left md:pl-10">
+
+            <motion.span
+              className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4
+              bg-amber-200 text-amber-900
+              dark:bg-zinc-800 dark:text-orange-300"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
             >
-              👋 Selamat datang di portfolio saya
+              👋 Selamat Datang
             </motion.span>
-          </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-          >
-            Fullstack Developer
-            <br />
-            <span className="text-gradient">&amp; Content Creator</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
-          >
-            Saya membangun aplikasi web yang indah dan fungsional, 
-            serta membagikan pengetahuan melalui konten yang inspiratif.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-          >
-            <Button 
-              size="lg" 
-              className="rounded-full px-8 shadow-glow"
-              onClick={() => {
-                const element = document.querySelector('#projects');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="font-display text-3xl md:text-5xl font-bold mb-4
+              text-amber-900 dark:text-orange-200"
             >
-              Lihat Projects
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="rounded-full px-8"
-              onClick={() => {
-                const element = document.querySelector('#contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Hubungi Saya
-            </Button>
-          </motion.div>
+              Muhammad Arsil Bisyari
+            </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex items-center justify-center gap-6"
-          >
-            {[
-              { icon: Github, href: '#', label: 'GitHub' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn' },
-              { icon: Youtube, href: '#', label: 'YouTube' },
-              { icon: Instagram, href: '#', label: 'Instagram' },
-            ].map((social) => (
-              <motion.a
-                key={social.label}
-                href={social.href}
-                className="p-3 rounded-full glass hover:shadow-glow transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.label}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-sm md:text-lg mb-6 max-w-md
+              text-amber-800 dark:text-orange-200/80"
+            >
+              Saya membangun aplikasi web yang indah dan fungsional,
+              serta membagikan pengetahuan melalui konten inspiratif.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+              className="flex flex-wrap items-center gap-3 mb-6"
+            >
+              <Button
+                size="sm"
+                className="rounded-full px-6
+                bg-amber-500 hover:bg-amber-600 text-white
+                dark:bg-orange-500 dark:hover:bg-orange-600"
               >
-                <social.icon className="h-5 w-5 text-foreground" />
-              </motion.a>
-            ))}
-          </motion.div>
+                Projects
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                className="rounded-full px-6
+                border-amber-500 text-amber-800
+                dark:border-orange-400 dark:text-orange-300"
+              >
+                Contact
+              </Button>
+            </motion.div>
+
+            {/* ICON LEBIH KECIL */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.9 }}
+              className="flex items-center gap-4"
+             >
+
+              {[Github, Linkedin, Youtube, Instagram].map((Icon, i) => (
+
+              
+                <motion.div
+                  key={i}
+                  className="p-2 rounded-full transition-all
+                  bg-amber-200 hover:bg-amber-400
+                  dark:bg-zinc-800 dark:hover:bg-orange-500"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                >
+                  <Icon className="h-4 w-4 text-amber-900 dark:text-orange-300" />
+                </motion.div>
+              ))}
+            </motion.div>
+
+          </div>
         </div>
       </div>
 
+      {/* SCROLL BUTTON */}
       <motion.button
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 p-3 rounded-full glass animate-float cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 p-3 rounded-full
+        bg-amber-200 dark:bg-zinc-800"
         whileHover={{ scale: 1.1 }}
-        aria-label="Scroll to About"
       >
-        <ArrowDown className="h-5 w-5 text-primary" />
+        <ArrowDown className="h-5 w-5 text-amber-900 dark:text-orange-300" />
       </motion.button>
     </section>
   );
