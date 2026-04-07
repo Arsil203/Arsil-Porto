@@ -6,10 +6,10 @@ export default function AboutSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const stats = [
-    { icon: Code2, value: '50+', label: 'Projects' },
-    { icon: Video, value: '100+', label: 'Content' },
-    { icon: Coffee, value: '1000+', label: 'Coffee' },
-    { icon: Rocket, value: '5+', label: 'Experience' },
+    { icon: Code2, value: '10+', label: 'Projects' },
+    { icon: Video, value: '10+', label: 'Content' },
+    // { icon: Coffee, value: '1000+', label: 'Coffee' },
+    // { icon: Rocket, value: '5+', label: 'Experience' },
   ];
 
   const accordion = [

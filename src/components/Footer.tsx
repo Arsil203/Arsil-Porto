@@ -35,9 +35,6 @@ export default function Footer() {
     <footer
       className="
       py-10
-      bg-gradient-to-t 
-      from-amber-200 via-yellow-50 to-orange-100
-      border-t border-amber-300/40
 
       dark:from-zinc-900 dark:via-neutral-900 dark:to-stone-900
       dark:border-zinc-700

@@ -11,6 +11,13 @@ export default function HeroSection() {
     }
   };
 
+  const socialLinks = [
+    { icon: Github, link: 'https://github.com/Arsil203' },
+    // { icon: Linkedin, link: 'https://linkedin.com/in/username' },
+    // { icon: Youtube, link: 'https://youtube.com/@username' },
+    { icon: Instagram, link: 'https://instagram.com/mhd_arsll' },
+  ];
+
   return (
     <section
       id="home"
@@ -23,20 +30,19 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
 
-          {/* FOTO BESAR + FLOAT + HOVER */}
+          {/* FOTO (LEBIH BESAR) */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="relative group"
           >
-            {/* Floating Image */}
             <motion.div
-              animate={{ y: [0, -15, 0] }}
+              animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4
-              border-amber-400 shadow-[0_0_40px_rgba(251,191,36,0.3)]
-              dark:border-orange-400 dark:shadow-[0_0_40px_rgba(251,146,60,0.3)]"
+              className="w-80 h-80 md:w-[420px] md:h-[420px] rounded-full overflow-hidden border-4
+              border-amber-400 shadow-[0_0_60px_rgba(251,191,36,0.35)]
+              dark:border-orange-400 dark:shadow-[0_0_60px_rgba(251,146,60,0.35)]"
             >
               <img
                 src="/profile.jpg"
@@ -45,16 +51,15 @@ export default function HeroSection() {
               />
             </motion.div>
 
-            {/* POP UP */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs
             bg-amber-300 text-amber-900 opacity-0 group-hover:opacity-100 transition
             dark:bg-zinc-800 dark:text-orange-300">
-              👀 This is me
+              👀 
             </div>
           </motion.div>
 
-          {/* TEXT (LEBIH KECIL + KE KANAN) */}
-          <div className="flex-1 text-left md:pl-10">
+          {/* TEXT */}
+          <div className="flex-1 text-left md:pl-6">
 
             <motion.span
               className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-4
@@ -71,7 +76,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="font-display text-3xl md:text-5xl font-bold mb-4
+              className="font-display text-4xl md:text-6xl font-bold mb-4
               text-amber-900 dark:text-orange-200"
             >
               Muhammad Arsil Bisyari
@@ -81,7 +86,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-sm md:text-lg mb-6 max-w-md
+              className="text-base md:text-lg mb-6 max-w-lg
               text-amber-800 dark:text-orange-200/80"
             >
               Saya membangun aplikasi web yang indah dan fungsional,
@@ -108,32 +113,34 @@ export default function HeroSection() {
                 size="sm"
                 className="rounded-full px-6
                 border-amber-500 text-amber-800
-                dark:border-orange-400 dark:text-orange-300"
+                hover:bg-amber-500 hover:text-white
+                dark:border-orange-400 dark:text-orange-300
+                dark:hover:bg-orange-500 dark:hover:text-white"
               >
                 Contact
               </Button>
             </motion.div>
 
-            {/* ICON LEBIH KECIL */}
+            {/* SOCIAL ICON (SUDAH ADA LINK) */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.9 }}
               className="flex items-center gap-4"
-             >
-
-              {[Github, Linkedin, Youtube, Instagram].map((Icon, i) => (
-
-              
-                <motion.div
+            >
+              {socialLinks.map((item, i) => (
+                <motion.a
                   key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full transition-all
                   bg-amber-200 hover:bg-amber-400
                   dark:bg-zinc-800 dark:hover:bg-orange-500"
                   whileHover={{ scale: 1.2, y: -2 }}
                 >
-                  <Icon className="h-4 w-4 text-amber-900 dark:text-orange-300" />
-                </motion.div>
+                  <item.icon className="h-4 w-4 text-amber-900 dark:text-orange-300" />
+                </motion.a>
               ))}
             </motion.div>
 
